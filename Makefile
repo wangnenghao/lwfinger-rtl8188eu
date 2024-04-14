@@ -149,7 +149,7 @@ endif
 all: test modules
 
 test:
-	@if [ !  -e  ./.git ] ; then echo $(MSG); exit 1; fi;
+	@if [ !  -e  ./.git  -a  !  -e  ./.sl ] ; then echo $(MSG); exit 1; fi;
 
 modules:
 	$(MAKE) ARCH=$(ARCH) CROSS_COMPILE=$(CROSS_COMPILE) -C $(KSRC) M=$(shell pwd)  modules
